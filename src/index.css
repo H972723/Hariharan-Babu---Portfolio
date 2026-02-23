@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-white antialiased;
+    background-color: #0a0a0a;
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+  }
+  
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.3);
+    color: white;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 text-center;
+  }
+  
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #6366f1, #22d3ee, #6366f1);
+  }
+  
+  /* Code Block Styles */
+  .code-block {
+    @apply rounded-lg overflow-hidden font-mono text-sm;
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+  }
+  
+  .code-header {
+    @apply flex items-center gap-2 px-4 py-3 border-b;
+    background-color: #1a1a1a;
+    border-color: #333333;
+  }
+  
+  .code-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+  
+  .code-dot-red { @apply bg-red-500; }
+  .code-dot-yellow { @apply bg-yellow-500; }
+  .code-dot-green { @apply bg-green-500; }
+  
+  .code-content {
+    @apply p-4 overflow-x-auto;
+  }
+  
+  .code-line {
+    @apply flex;
+  }
+  
+  .code-line-number {
+    @apply text-gray-600 select-none w-8 text-right mr-4 text-xs;
+  }
+  
+  .code-text {
+    color: #d4d4d4;
+  }
+  
+  .code-keyword { color: #569cd6; }
+  .code-string { color: #ce9178; }
+  .code-comment { color: #6a9955; }
+  .code-function { color: #dcdcaa; }
+  .code-variable { color: #9cdcfe; }
+  
+  /* Card Styles */
+  .glass-card {
+    @apply backdrop-blur-sm rounded-2xl border;
+    background-color: rgba(22, 22, 22, 0.8);
+    border-color: rgba(31, 31, 31, 0.5);
+  }
+  
+  .glass-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.1);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+}
