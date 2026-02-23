@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Heart, Star, GitFork } from 'lucide-react';
+import { Github, Linkedin, Mail, Star, GitFork } from 'lucide-react';
 import { personalInfo, socialLinks } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
 
@@ -11,7 +11,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function Footer() {
   const { theme } = useTheme();
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className={`py-12 px-4 transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 border-t border-gray-800' : 'bg-[#f5f5f7] border-t border-gray-200'}`}>
