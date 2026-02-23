@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, Code2 } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { experiences } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
 

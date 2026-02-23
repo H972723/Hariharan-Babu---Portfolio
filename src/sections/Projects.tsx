@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Folder, Layers } from 'lucide-react';
+import { ExternalLink, Github, Folder } from 'lucide-react';
 import { projects } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
 
