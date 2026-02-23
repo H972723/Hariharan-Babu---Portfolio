@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { education } from '../data/portfolio';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Star } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Education() {
@@ -112,6 +112,22 @@ export default function Education() {
                       
                       {/* Field */}
                       <p className="text-gray-400 text-sm mb-2">{edu.field}</p>
+                      
+                      {/* CGPA */}
+                      {edu.cgpa && (
+                        <motion.div 
+                          className="flex items-center gap-1 mt-3"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.3 + index * 0.1 }}
+                        >
+                          <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30">
+                            <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                            <span className="text-yellow-400 text-xs font-semibold">CGPA: {edu.cgpa}</span>
+                          </div>
+                        </motion.div>
+                      )}
                     </div>
 
                     {/* Right Side - Logo Placeholder */}

@@ -31,6 +31,7 @@ export interface Education {
   degree: string;
   field: string;
   duration: string;
+  cgpa?: string;
   description?: string;
   codeBlock?: string;
 }

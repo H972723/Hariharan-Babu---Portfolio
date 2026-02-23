@@ -257,12 +257,14 @@ export const education: Education[] = [
     degree: "Master's degree",
     field: 'Data Science',
     duration: 'August 2024 - May 2026',
+    cgpa: '4.0/4.0',
     description: 'Pursuing advanced studies in Data Science with focus on machine learning, big data analytics, and statistical modeling.',
     codeBlock: `const education = {
   degree: "Master's degree",
   field: "Data Science",
   institution: "University of North Texas",
   duration: "August 2024 - May 2026",
+  cgpa: "4.0/4.0",
   focus: ["Machine Learning", "Big Data Analytics", "Statistical Modeling"]
 };`,
   },
@@ -272,12 +274,14 @@ export const education: Education[] = [
     degree: "Bachelor's degree",
     field: 'Computer Science',
     duration: 'August 2020 - May 2024',
+    cgpa: '3.5/4.0',
     description: 'Completed undergraduate studies in Computer Science with comprehensive coursework in software development, algorithms, and data structures.',
     codeBlock: `const education = {
   degree: "Bachelor's degree",
   field: "Computer Science",
   institution: "Anna University Chennai",
   duration: "August 2020 - May 2024",
+  cgpa: "3.5/4.0",
   coursework: ["Software Development", "Algorithms", "Data Structures", "Database Systems"]
 };`,
   },
@@ -314,7 +318,7 @@ export const awards: Award[] = [
     title: 'First Class – Bachelor of Engineering',
     date: 'May 2024',
     organization: 'Anna University Chennai',
-    description: 'Awarded First Class honors for achieving high academic performance across the undergraduate program.',
+    description: 'Awarded First Class honors for achieving high academic performance with a CGPA of 3.5/4.0 across the undergraduate program.',
     emoji: '🎓',
   },
 ];

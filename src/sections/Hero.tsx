@@ -121,17 +121,24 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </motion.a>
-              <motion.a
-                href="#"
+              <motion.button
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/Final%20Resume_Hariharan_Babu_MS.pdf';
+                  link.download = 'Hariharan_Babu_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-[#0d9488] text-white font-semibold rounded-full hover:bg-[#0f766e] transition-colors duration-300 text-center flex items-center justify-center gap-2"
+                className="px-8 py-3 bg-[#0d9488] text-white font-semibold rounded-full hover:bg-[#0f766e] transition-colors duration-300 text-center flex items-center justify-center gap-2 cursor-pointer"
               >
                 GET RESUME
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-              </motion.a>
+              </motion.button>
             </motion.div>
           </div>
 
