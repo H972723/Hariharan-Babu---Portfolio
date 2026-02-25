@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 import { personalInfo, socialLinks } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
+import RotatingGreeting from '../components/RotatingGreeting';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Github,
@@ -51,7 +52,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-2"
             >
-              <span className={`text-xl ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>Hey there,</span>
+              <RotatingGreeting />
             </motion.div>
 
             <motion.h1

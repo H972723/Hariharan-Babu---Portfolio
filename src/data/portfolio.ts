@@ -40,7 +40,7 @@ export const experiences: Experience[] = [
     id: '0',
     company: 'University of North Texas',
     role: 'Graduate Student Research Assistant',
-    duration: 'January 2025 - Present (1 year 2 months)',
+    duration: 'January 2025 - May 2026',
     description: [
       'Advanced statistical learning and large-scale data research by engineering scalable ML pipelines and distributed workflows, strengthening model robustness and improving experimental reproducibility by 32%.',
       'Designed and evaluated agentic AI systems capable of autonomous reasoning and multi-step orchestration, reducing manual research intervention by 46% while enhancing execution reliability.',
@@ -52,7 +52,7 @@ export const experiences: Experience[] = [
     codeBlock: `const job = {
   myRole: "Graduate Student Research Assistant",
   company: "University of North Texas",
-  duration: "January 2025 - Present (1 year 2 months)",
+  duration: "January 2025 - May 2026",
   location: "Dallas, TX",
   type: "Research & Teaching",
   tools: ["Python", "Machine Learning", "Agentic AI Systems", "Large Language Models (LLMs)", "Deep Learning", "Distributed Computing"],
