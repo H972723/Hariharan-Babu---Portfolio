@@ -148,7 +148,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Location</div>
-                <span className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{personalInfo.location} (Open to relocation)</span>
+                <span className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Dallas, TX, USA (Open to relocation)</span>
               </div>
             </div>
           </motion.div>

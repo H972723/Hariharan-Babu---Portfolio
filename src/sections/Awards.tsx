@@ -3,6 +3,11 @@ import { awards } from '../data/portfolio';
 import { Award } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
+const awardLogos: Record<string, string> = {
+  'University of North Texas': '/unt-logo.jpg',
+  'Anna University Chennai': '/anna-university-logo.png',
+};
+
 const AwardsSection = () => {
   const { theme } = useTheme();
 
@@ -35,7 +40,21 @@ const AwardsSection = () => {
                     <h3 className={`text-xl md:text-2xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{award.title}</h3>
                     <span className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>{award.date}</span>
                   </div>
-                  <p className="text-[#6366f1] font-medium mb-3">{award.organization}</p>
+                  <div className="flex items-center gap-3 mb-3">
+                    <p className="text-[#6366f1] font-medium">{award.organization}</p>
+                    {awardLogos[award.organization] && (
+                      <motion.img
+                        src={awardLogos[award.organization]}
+                        alt={`${award.organization} logo`}
+                        className="w-8 h-8 rounded object-contain bg-white p-0.5"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + index * 0.1 }}
+                        whileHover={{ scale: 1.1 }}
+                      />
+                    )}
+                  </div>
                   <p className={`leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{award.description}</p>
                 </div>
               </div>

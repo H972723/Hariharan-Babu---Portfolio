@@ -5,7 +5,7 @@ export const personalInfo = {
   title: 'Data Engineer & ML Specialist',
   email: 'hariharanbabu.ms@gmail.com',
   phone: '+1 (555) 123-4567',
-  location: 'North Texas, Dallas, TX',
+  location: 'Dallas, TX, USA',
   tagline: 'I Turn Ideas into Code.',
   heroDescription: 'const developer = {\n  name: "Hariharan Babu",\n  skills: ["React", "Node.js", "TypeScript", "Python", "AWS", "Docker"],\n  hardWorker: true,\n  quickLearner: true,\n  problemSolver: true,\n  hireable: function() {\n    return this.hardWorker && this.problemSolver;\n  }\n};',
   description: "Hey there, I'm Hariharan Babu! I'm that developer who gets unreasonably excited about clean code and stays up way too late debugging. When not chasing the perfect solution, I'm probably exploring some shiny new tech that caught my attention. My learning style? Dive in headfirst and figure out how to swim while falling!\n\nMy code is so meticulously organized they make my sock drawer look chaotic—I've been known to refactor perfectly working functions at 2 AM just because the indentation felt wrong. My superpower? Making complex systems look so simple your grandmother could use them.",
@@ -36,6 +36,29 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const experiences: Experience[] = [
+  {
+    id: '0',
+    company: 'University of North Texas',
+    role: 'Graduate Student Research Assistant',
+    duration: 'January 2025 - Present (1 year 2 months)',
+    description: [
+      'Advanced statistical learning and large-scale data research by engineering scalable ML pipelines and distributed workflows, strengthening model robustness and improving experimental reproducibility by 32%.',
+      'Designed and evaluated agentic AI systems capable of autonomous reasoning and multi-step orchestration, reducing manual research intervention by 46% while enhancing execution reliability.',
+      'Optimized big data processing for semi-structured and high-dimensional datasets through feature abstraction and dimensionality strategies, increasing downstream predictive stability by 28%.',
+      'Led end-to-end career readiness initiatives for 600+ graduate students, architecting workshops on résumé strategy, LinkedIn positioning, interview performance, and strategic networking to elevate market competitiveness.',
+      'Delivered structured mentorship, faculty collaboration, and performance-based feedback frameworks, strengthening professional branding quality and improving interview preparedness across student cohorts.',
+    ],
+    technologies: ['Python', 'Machine Learning', 'Agentic AI Systems', 'Large Language Models (LLMs)', 'Deep Learning', 'Distributed Computing', 'Statistical Modeling', 'Data Engineering', 'Model Validation', 'Career Coaching'],
+    codeBlock: `const job = {
+  myRole: "Graduate Student Research Assistant",
+  company: "University of North Texas",
+  duration: "January 2025 - Present (1 year 2 months)",
+  location: "Dallas, TX",
+  type: "Research & Teaching",
+  tools: ["Python", "Machine Learning", "Agentic AI Systems", "Large Language Models (LLMs)", "Deep Learning", "Distributed Computing"],
+  description: "Advanced statistical learning research. Improved experimental reproducibility by 32% and reduced manual research intervention by 46%. Led career readiness for 600+ graduate students."
+};`,
+  },
   {
     id: '1',
     company: 'Newgen KnowledgeWorks',

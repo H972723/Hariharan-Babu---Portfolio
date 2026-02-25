@@ -3,6 +3,11 @@ import { volunteering } from '../data/portfolio';
 import { Users } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
+const logoMap: Record<string, string> = {
+  'Thuvakkam': '/thuvakkam-logo.jpg',
+  'Bhumi': '/bhumi-logo.jpg',
+};
+
 const VolunteeringSection = () => {
   const { theme } = useTheme();
 
@@ -29,13 +34,27 @@ const VolunteeringSection = () => {
               className={`rounded-2xl p-8 border hover:border-[#6366f1] transition-colors shadow-sm ${theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'}`}
             >
               <div className="flex items-start justify-between mb-4">
-                <div>
+                <div className="flex-1">
                   <h3 className={`text-xl font-bold mb-1 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>{vol.role}</h3>
                   <p className="text-[#6366f1] font-medium">{vol.organization}</p>
                 </div>
-                <span className="px-3 py-1 bg-[#6366f1]/10 text-[#6366f1] text-sm rounded-full">
-                  {vol.category}
-                </span>
+                {logoMap[vol.organization] && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className="ml-4 flex-shrink-0"
+                  >
+                    <motion.img
+                      src={logoMap[vol.organization]}
+                      alt={`${vol.organization} logo`}
+                      className="w-14 h-14 rounded-full object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.div>
+                )}
               </div>
               {vol.description && (
                 <p className={`leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>{vol.description}</p>

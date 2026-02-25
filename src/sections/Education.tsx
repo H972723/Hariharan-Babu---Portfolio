@@ -3,6 +3,11 @@ import { education } from '../data/portfolio';
 import { GraduationCap, Star } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
+const universityLogos: Record<string, string> = {
+  'University of North Texas': '/unt-logo.jpg',
+  'Anna University Chennai': '/anna-university-logo.png',
+};
+
 export default function Education() {
   const { theme } = useTheme();
 
@@ -91,14 +96,9 @@ export default function Education() {
                     minHeight: '160px'
                   }}
                 >
-                  <div className="flex items-start justify-between">
+                  <div className="flex items-center justify-between">
                     {/* Left Content */}
                     <div className="flex-1">
-                      {/* Year */}
-                      <div className="text-white text-right text-sm mb-4">
-                        {edu.duration.replace('August ', '').replace('May ', '').replace(' - ', ' - ')}
-                      </div>
-                      
                       {/* Degree Type */}
                       <div className="flex items-center gap-2 mb-2">
                         <GraduationCap className="w-5 h-5 text-[#0d9488]" />
@@ -108,15 +108,15 @@ export default function Education() {
                       </div>
                       
                       {/* Institution */}
-                      <h3 className="text-white font-medium mb-2">{edu.institution}</h3>
+                      <h3 className="text-white font-medium text-lg mb-1">{edu.institution}</h3>
                       
                       {/* Field */}
-                      <p className="text-gray-400 text-sm mb-2">{edu.field}</p>
+                      <p className="text-gray-400 text-sm mb-3">{edu.field}</p>
                       
                       {/* CGPA */}
                       {edu.cgpa && (
                         <motion.div 
-                          className="flex items-center gap-1 mt-3"
+                          className="flex items-center gap-1"
                           initial={{ opacity: 0, scale: 0.8 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           viewport={{ once: true }}
@@ -130,17 +130,36 @@ export default function Education() {
                       )}
                     </div>
 
-                    {/* Right Side - Logo Placeholder */}
-                    <div className="ml-6">
-                      <div 
-                        className="w-16 h-16 rounded-lg flex items-center justify-center text-2xl font-bold"
-                        style={{ 
-                          backgroundColor: index === 0 ? '#1e3a5f' : '#fff',
-                          color: index === 0 ? '#fff' : '#333'
-                        }}
-                      >
-                        {edu.institution.charAt(0)}
+                    {/* Right Side - Year and Logo */}
+                    <div className="flex flex-col items-end gap-3 ml-6">
+                      {/* Year */}
+                      <div className="text-white text-sm">
+                        {edu.duration.replace('August ', '').replace('May ', '').replace(' - ', ' - ')}
                       </div>
+                      
+                      {/* University Logo */}
+                      {universityLogos[edu.institution] ? (
+                        <motion.img
+                          src={universityLogos[edu.institution]}
+                          alt={`${edu.institution} logo`}
+                          className="w-16 h-16 rounded-lg object-contain bg-white p-1"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.3 + index * 0.1 }}
+                          whileHover={{ scale: 1.05 }}
+                        />
+                      ) : (
+                        <div 
+                          className="w-16 h-16 rounded-lg flex items-center justify-center text-2xl font-bold"
+                          style={{ 
+                            backgroundColor: index === 0 ? '#1e3a5f' : '#fff',
+                            color: index === 0 ? '#fff' : '#333'
+                          }}
+                        >
+                          {edu.institution.charAt(0)}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

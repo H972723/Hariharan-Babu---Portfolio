@@ -135,24 +135,14 @@ export default function Navbar() {
             <div className={`absolute right-0 top-0 bottom-0 w-64 shadow-xl p-6 ${
               theme === 'dark' ? 'bg-gray-900' : 'bg-white'
             }`}>
-              <div className="flex justify-between items-center mb-8">
-                {/* Theme Toggle in Mobile Menu */}
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
+              <div className="flex justify-end items-center mb-8">
+                <motion.button 
+                  onClick={() => setIsMobileMenuOpen(false)} 
+                  className={`p-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}
                   whileTap={{ scale: 0.95 }}
-                  onClick={toggleTheme}
-                  className={`p-2 rounded-lg transition-colors ${
-                    theme === 'dark' 
-                      ? 'text-yellow-400 hover:bg-gray-800' 
-                      : 'text-gray-600 hover:bg-gray-100'
-                  }`}
-                  aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
                 >
-                  {theme === 'light' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                </motion.button>
-                <button onClick={() => setIsMobileMenuOpen(false)} className={`p-2 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}`}>
                   <X className="w-6 h-6" />
-                </button>
+                </motion.button>
               </div>
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
