@@ -108,7 +108,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 flex-wrap"
             >
               <motion.a
                 href="#contact"
@@ -139,6 +139,19 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
               </motion.button>
+              <motion.a
+                href="https://calendly.com/hariharanbabu-ms/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="px-8 py-3 bg-[#f59e0b] text-white font-semibold rounded-full hover:bg-[#d97706] transition-colors duration-300 text-center flex items-center justify-center gap-2"
+              >
+                BOOK A CALL
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </motion.a>
             </motion.div>
           </div>
 

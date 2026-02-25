@@ -126,7 +126,7 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-[60] md:hidden"
           >
             <div
               className="absolute inset-0 bg-black/50"
