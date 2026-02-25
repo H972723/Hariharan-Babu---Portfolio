@@ -30,15 +30,19 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className={`text-lg leading-relaxed mb-6 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
-              Hey there, I'm <span className="text-[#6366f1] font-semibold">{personalInfo.name.toUpperCase()}</span>! I'm that developer who gets unreasonably excited about clean code and stays up way too late debugging. When not chasing the perfect solution, I'm probably exploring some shiny new tech that caught my attention. My learning style? <span className="text-[#0d9488] font-medium">Dive in headfirst and figure out how to swim while falling!</span> Apparently I'm also learning Swimming.
+              Hey there, I'm <span className="text-[#6366f1] font-semibold">HARIHARAN BABU</span>! I am a data professional operating across data engineering, data analytics, data science, and applied AI, focused on building scalable data ecosystems that convert raw information into reliable intelligence.
             </p>
             
             <p className={`leading-relaxed mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              My code is so meticulously organized they make my sock drawer look chaotic—I've been known to refactor perfectly working functions at 2 AM just because the indentation felt wrong. My superpower? Making complex systems look so simple your grandmother could use them.
+              My experience includes designing robust ETL/ELT pipelines, implementing modern data warehouse architectures, and optimizing large-scale data processing using Python, SQL, and distributed frameworks such as Spark. I work extensively with cloud platforms to develop secure, cost-efficient, and production-grade data solutions that support reporting, advanced analytics, and machine learning use cases.
             </p>
             
+            <p className={`leading-relaxed mb-6 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+              In my role as a data engineer and analyst, I design data models, develop batch and real-time pipelines, and ensure data quality, governance, and performance across the data lifecycle. I collaborate closely with business and product teams to translate requirements into scalable datasets, semantic layers, and decision-ready dashboards.
+            </p>
+
             <p className={`leading-relaxed mb-8 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-              I believe good documentation is like flossing - everyone knows they should do it, but I'm one of the few who actually does (both!). Currently seeking opportunities where I can build meaningful tech, preferably at places that don't mind the occasional dad joke in code comments. Let's create something awesome together!
+              Alongside engineering, I focus on AI and LLM-driven solutions within data platforms. I build machine learning pipelines, develop retrieval-augmented generation (RAG) workflows, work with embeddings and transformers, and integrate AI capabilities directly into data products. By combining data engineering foundations with data science and modern AI practices, I help create intelligent systems that power automation, advanced insights, and next-generation data applications.
             </p>
 
             <div className="flex items-center gap-4">

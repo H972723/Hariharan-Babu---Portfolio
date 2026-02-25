@@ -6,6 +6,7 @@ import About from './sections/About';
 import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Volunteering from './sections/Volunteering';
+import Certifications from './sections/Certifications';
 import Awards from './sections/Awards';
 import Skills from './sections/Skills';
 import Education from './sections/Education';
@@ -27,6 +28,7 @@ function App() {
         <Skills />
         <Education />
         <Volunteering />
+        <Certifications />
         <Awards />
         <Contact />
       </main>
