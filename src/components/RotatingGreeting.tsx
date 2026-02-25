@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../context/ThemeContext';
 
 const greetings = [
   { text: 'வணக்கம்', lang: 'Tamil' },
@@ -25,7 +24,6 @@ const greetings = [
 
 export default function RotatingGreeting() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { theme } = useTheme();
 
   useEffect(() => {
     const timer = setInterval(() => {
