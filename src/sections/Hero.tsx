@@ -191,18 +191,20 @@ export default function Hero() {
                     {'\n  '}
                     <span className="text-[#9cdcfe]">skills</span>
                     <span className="text-[#d4d4d4]">: [</span>
-                    <span className="text-[#ce9178]">&apos;React&apos;</span>
+                    <span className="text-[#ce9178]">&apos;Python&apos;</span>
                     <span className="text-[#d4d4d4]">, </span>
-                    <span className="text-[#ce9178]">&apos;Node.js&apos;</span>
+                    <span className="text-[#ce9178]">&apos;Agentic AI&apos;</span>
                     <span className="text-[#d4d4d4]">, </span>
-                    <span className="text-[#ce9178]">&apos;TypeScript&apos;</span>
+                    <span className="text-[#ce9178]">&apos;LLMs&apos;</span>
                     <span className="text-[#d4d4d4]">,</span>
                     {'\n    '}
-                    <span className="text-[#ce9178]">&apos;Python&apos;</span>
+                    <span className="text-[#ce9178]">&apos;Airflow&apos;</span>
                     <span className="text-[#d4d4d4]">, </span>
                     <span className="text-[#ce9178]">&apos;AWS&apos;</span>
                     <span className="text-[#d4d4d4]">, </span>
-                    <span className="text-[#ce9178]">&apos;Docker&apos;</span>
+                    <span className="text-[#ce9178]">&apos;Spark&apos;</span>
+                    <span className="text-[#d4d4d4]">, </span>
+                    <span className="text-[#ce9178]">&apos;SQL&apos;</span>
                     <span className="text-[#d4d4d4]">],</span>
                     {'\n  '}
                     <span className="text-[#9cdcfe]">hardWorker</span>
