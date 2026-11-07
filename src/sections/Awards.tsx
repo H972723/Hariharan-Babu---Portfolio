@@ -6,6 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 const awardLogos: Record<string, string> = {
   'University of North Texas': '/unt-logo.jpg',
   'Anna University Chennai': '/anna-university-logo.png',
+  'NVIDIA': '/certifications/nvidia.png',
 };
 
 const AwardsSection = () => {

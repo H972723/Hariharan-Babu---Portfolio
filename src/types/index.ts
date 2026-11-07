@@ -22,7 +22,7 @@ export interface Project {
 export interface Skill {
   name: string;
   icon: string;
-  category: 'frontend' | 'backend' | 'tools' | 'languages';
+  category: 'frontend' | 'backend' | 'tools' | 'languages' | 'ai' | 'hpc';
 }
 
 export interface Education {
@@ -34,6 +34,22 @@ export interface Education {
   cgpa?: string;
   description?: string;
   codeBlock?: string;
+}
+
+export interface CertificationItem {
+  id: string;
+  title: string;
+  organization: string;
+  issueDate: string; // ISO date for sorting: 'YYYY-MM-DD'
+  completedDateDisplay: string;
+  expirationDate?: string;
+  credentialId?: string;
+  logo: string;
+  pdfUrl?: string;
+  verifyUrl?: string;
+  category?: 'cloud' | 'data' | 'ai' | 'management';
+  featured?: boolean;
+  highlightBadge?: string;
 }
 
 export interface SocialLink {
@@ -66,4 +82,17 @@ export interface Award {
   organization: string;
   description: string;
   emoji: string;
+}
+
+export interface OrganizationInfo {
+  name: string;
+  logo: string;
+  tagline: string;
+  founder: string;
+  founderTitle: string;
+  email: string;
+  website: string;
+  description: string;
+  mission: string;
+  highlights: string[];
 }

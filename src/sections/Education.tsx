@@ -1,18 +1,43 @@
 import { motion } from 'framer-motion';
 import { education } from '../data/portfolio';
-import { GraduationCap, Star } from 'lucide-react';
+import { GraduationCap, Star, BookOpen } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const universityLogos: Record<string, string> = {
+  'The University of Texas at Dallas': '/utd-logo.jpg',
+  'University of Texas at Dallas (UTD)': '/utd-logo.jpg',
   'University of North Texas': '/unt-logo.jpg',
   'Anna University Chennai': '/anna-university-logo.png',
+};
+
+const degreeBadgeColors: Record<string, { text: string; bg: string }> = {
+  doctoral: { text: '#ea580c', bg: 'rgba(234, 88, 12, 0.15)' },
+  masters: { text: '#0d9488', bg: 'rgba(13, 148, 136, 0.15)' },
+  bachelors: { text: '#6366f1', bg: 'rgba(99, 102, 241, 0.15)' },
 };
 
 export default function Education() {
   const { theme } = useTheme();
 
+  const getDegreeCategory = (degree: string) => {
+    if (degree.toLowerCase().includes('doctor') || degree.toLowerCase().includes('ph.d')) {
+      return 'doctoral';
+    }
+    if (degree.toLowerCase().includes('master')) {
+      return 'masters';
+    }
+    return 'bachelors';
+  };
+
+  const getDegreeLabel = (degree: string) => {
+    const cat = getDegreeCategory(degree);
+    if (cat === 'doctoral') return 'DOCTORAL DEGREE (PH.D.)';
+    if (cat === 'masters') return "MASTER'S DEGREE";
+    return "BACHELOR'S DEGREE";
+  };
+
   return (
-    <section id="education" className={`py-20 px-4 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-800' : 'bg-[#f5f5f7]'}`}>
+    <section id="education" className={`py-24 px-4 sm:px-8 lg:px-12 transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-800' : 'bg-[#f5f5f7]'}`}>
       <div className="max-w-6xl mx-auto">
         {/* Section Label */}
         <motion.div
@@ -24,53 +49,43 @@ export default function Education() {
         >
           <div className="flex items-center gap-4">
             <div className={`w-24 h-px ${theme === 'dark' ? 'bg-gray-600' : 'bg-gray-400'}`}></div>
-            <span className={`font-semibold tracking-wider text-sm px-6 py-2 rounded ${theme === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-white'}`}>Education</span>
+            <span className={`font-semibold tracking-wider text-sm px-6 py-2 rounded flex items-center gap-2 ${theme === 'dark' ? 'bg-gray-700 text-white' : 'bg-gray-800 text-white'}`}>
+              <BookOpen className="w-4 h-4 text-teal-400" />
+              Education
+            </span>
             <div className={`w-24 h-px ${theme === 'dark' ? 'bg-gray-600' : 'bg-gray-400'}`}></div>
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
           {/* Left Side - Illustration */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="hidden lg:flex justify-center"
+            className="hidden lg:flex lg:col-span-4 justify-center"
           >
             <div className="relative">
               {/* Education Illustration */}
-              <svg width="300" height="300" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Background Circle */}
+              <svg width="280" height="280" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="200" cy="200" r="180" fill="#E8F4FD" />
-                
-                {/* Books Stack */}
                 <rect x="120" y="280" width="160" height="30" rx="5" fill="#FF6B6B" />
                 <rect x="130" y="250" width="140" height="30" rx="5" fill="#4ECDC4" />
                 <rect x="110" y="220" width="180" height="30" rx="5" fill="#45B7D1" />
-                
-                {/* Person Sitting */}
                 <circle cx="200" cy="160" r="40" fill="#FFD93D" />
                 <rect x="170" y="200" width="60" height="70" rx="10" fill="#FF6B6B" />
                 <rect x="160" y="260" width="25" height="50" rx="5" fill="#333" />
                 <rect x="215" y="260" width="25" height="50" rx="5" fill="#333" />
-                
-                {/* Arms */}
                 <rect x="140" y="210" width="30" height="10" rx="5" fill="#FFD93D" />
                 <rect x="230" y="210" width="30" height="10" rx="5" fill="#FFD93D" />
-                
-                {/* Graduation Cap */}
                 <polygon points="160,120 200,100 240,120 200,90" fill="#333" />
                 <rect x="195" y="120" width="10" height="25" fill="#333" />
                 <circle cx="200" cy="115" r="3" fill="#FFD700" />
-                
-                {/* Floating Elements */}
                 <circle cx="80" cy="100" r="15" fill="#FFB6C1" opacity="0.6" />
                 <circle cx="320" cy="80" r="20" fill="#98D8C8" opacity="0.6" />
                 <circle cx="340" cy="200" r="12" fill="#F7DC6F" opacity="0.6" />
                 <circle cx="60" cy="250" r="18" fill="#BB8FCE" opacity="0.6" />
-                
-                {/* Stars */}
                 <text x="90" y="150" fontSize="20" fill="#F7DC6F">✨</text>
                 <text x="300" y="140" fontSize="20" fill="#F7DC6F">⭐</text>
                 <text x="280" y="280" fontSize="20" fill="#F7DC6F">✨</text>
@@ -79,92 +94,108 @@ export default function Education() {
           </motion.div>
 
           {/* Right Side - Education Cards */}
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <motion.div
-                key={edu.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                {/* Card */}
-                <div 
-                  className="rounded-2xl overflow-hidden shadow-xl p-6"
-                  style={{ 
-                    backgroundColor: '#2d2d2d',
-                    minHeight: '160px'
-                  }}
-                >
-                  <div className="flex items-center justify-between">
-                    {/* Left Content */}
-                    <div className="flex-1">
-                      {/* Degree Type */}
-                      <div className="flex items-center gap-2 mb-2">
-                        <GraduationCap className="w-5 h-5 text-[#0d9488]" />
-                        <span className="text-[#0d9488] font-semibold text-sm tracking-wide">
-                          {edu.degree.includes("Master") ? "MASTER'S DEGREE" : "BACHELOR'S DEGREE"}
-                        </span>
-                      </div>
-                      
-                      {/* Institution */}
-                      <h3 className="text-white font-medium text-lg mb-1">{edu.institution}</h3>
-                      
-                      {/* Field */}
-                      <p className="text-gray-400 text-sm mb-3">{edu.field}</p>
-                      
-                      {/* CGPA */}
-                      {edu.cgpa && (
-                        <motion.div 
-                          className="flex items-center gap-1"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + index * 0.1 }}
-                        >
-                          <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/30">
-                            <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                            <span className="text-yellow-400 text-xs font-semibold">CGPA: {edu.cgpa}</span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </div>
+          <div className="lg:col-span-8 space-y-6">
+            {education.map((edu, index) => {
+              const cat = getDegreeCategory(edu.degree);
+              const badgeStyle = degreeBadgeColors[cat];
+              const logoSrc = universityLogos[edu.institution];
 
-                    {/* Right Side - Year and Logo */}
-                    <div className="flex flex-col items-end gap-3 ml-6">
-                      {/* Year */}
-                      <div className="text-white text-sm">
-                        {edu.duration.replace('August ', '').replace('May ', '').replace(' - ', ' - ')}
-                      </div>
-                      
-                      {/* University Logo */}
-                      {universityLogos[edu.institution] ? (
-                        <motion.img
-                          src={universityLogos[edu.institution]}
-                          alt={`${edu.institution} logo`}
-                          className="w-16 h-16 rounded-lg object-contain bg-white p-1"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + index * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
-                        />
-                      ) : (
-                        <div 
-                          className="w-16 h-16 rounded-lg flex items-center justify-center text-2xl font-bold"
-                          style={{ 
-                            backgroundColor: index === 0 ? '#1e3a5f' : '#fff',
-                            color: index === 0 ? '#fff' : '#333'
-                          }}
-                        >
-                          {edu.institution.charAt(0)}
+              return (
+                <motion.div
+                  key={edu.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div 
+                    className="rounded-2xl overflow-hidden shadow-xl p-6 transition-all duration-300 hover:shadow-2xl border"
+                    style={{ 
+                      backgroundColor: '#24292e',
+                      borderColor: cat === 'doctoral' ? '#ea580c' : cat === 'masters' ? '#0d9488' : '#30363d',
+                      minHeight: '160px'
+                    }}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      {/* Left Content */}
+                      <div className="flex-1">
+                        {/* Degree Type */}
+                        <div className="flex items-center gap-2 mb-2 flex-wrap">
+                          <GraduationCap className="w-5 h-5" style={{ color: badgeStyle.text }} />
+                          <span 
+                            className="font-bold text-xs tracking-wider px-2.5 py-0.5 rounded-full"
+                            style={{ color: badgeStyle.text, backgroundColor: badgeStyle.bg }}
+                          >
+                            {getDegreeLabel(edu.degree)}
+                          </span>
                         </div>
-                      )}
+                        
+                        {/* Institution */}
+                        <h3 className="text-white font-bold text-lg md:text-xl mb-1">{edu.institution}</h3>
+                        
+                        {/* Field */}
+                        <p className="text-gray-300 text-sm font-medium mb-3">{edu.field}</p>
+
+                        {/* Description */}
+                        {edu.description && (
+                          <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-4">
+                            {edu.description}
+                          </p>
+                        )}
+                        
+                        {/* CGPA */}
+                        {edu.cgpa && (
+                          <motion.div 
+                            className="inline-flex items-center gap-1.5"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 + index * 0.1 }}
+                          >
+                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/40">
+                              <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                              <span className="text-yellow-400 text-xs font-bold">CGPA: {edu.cgpa}</span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+
+                      {/* Right Side - Year and Logo */}
+                      <div className="flex flex-col items-end gap-3 flex-shrink-0">
+                        {/* Year Badge */}
+                        <div className="px-3 py-1 rounded-full bg-gray-700/80 text-gray-200 text-xs font-mono font-semibold">
+                          {edu.duration.replace('August ', '').replace('May ', '')}
+                        </div>
+                        
+                        {/* University Logo */}
+                        {logoSrc ? (
+                          <motion.img
+                            src={logoSrc}
+                            alt={`${edu.institution} logo`}
+                            className="w-16 h-16 rounded-xl object-contain bg-white p-1 shadow-md"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 + index * 0.1 }}
+                            whileHover={{ scale: 1.08 }}
+                          />
+                        ) : (
+                          <div 
+                            className="w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold shadow-md"
+                            style={{ 
+                              backgroundColor: cat === 'doctoral' ? '#ea580c' : '#1e3a5f',
+                              color: '#fff'
+                            }}
+                          >
+                            {edu.institution.charAt(0)}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

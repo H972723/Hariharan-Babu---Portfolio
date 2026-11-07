@@ -3,8 +3,15 @@ import { Briefcase } from 'lucide-react';
 import { experiences } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
 
-// Company logo colors
+// Company logo images and colors
+const companyLogos: Record<string, string> = {
+  'University of Texas at Dallas (UTD)': '/utd-logo.jpg',
+  'University of North Texas': '/unt-logo.jpg',
+};
+
 const companyColors: Record<string, string> = {
+  'University of Texas at Dallas (UTD)': '#ea580c',
+  'University of North Texas': '#00853e',
   'Newgen KnowledgeWorks': '#dc2626',
   'IHUB Divya Sampark at IIT-Roorkee': '#fbbf24',
   'National Institute of Technology (NITK)': '#8b5cf6',
@@ -112,8 +119,8 @@ export default function Experience() {
               key={exp.id}
               variants={cardVariants}
               whileHover={{ 
-                scale: 1.02,
-                y: -5,
+                scale: 1.01,
+                y: -4,
                 transition: { duration: 0.3 }
               }}
               className="group"
@@ -148,15 +155,26 @@ export default function Experience() {
                       whileHover={{ scale: 1.3 }}
                     />
                   </motion.div>
+                  
                   {/* Company Logo/Icon with animation */}
-                  <motion.div 
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white"
-                    style={{ backgroundColor: companyColors[exp.company] || '#6366f1' }}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {exp.company.charAt(0)}
-                  </motion.div>
+                  {companyLogos[exp.company] ? (
+                    <motion.img 
+                      src={companyLogos[exp.company]}
+                      alt={exp.company}
+                      className="w-8 h-8 rounded-full object-contain bg-white p-0.5"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  ) : (
+                    <motion.div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white"
+                      style={{ backgroundColor: companyColors[exp.company] || '#6366f1' }}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {exp.company.charAt(0)}
+                    </motion.div>
+                  )}
                   <span className="text-white font-semibold ml-2">{exp.company}</span>
                 </motion.div>
                 
