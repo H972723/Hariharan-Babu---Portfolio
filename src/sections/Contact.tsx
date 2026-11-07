@@ -169,6 +169,18 @@ export default function Contact() {
               </div>
 
               <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-[#0ea5e9]/15 text-[#0ea5e9]">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Org Email ({organizationInfo.name})</div>
+                  <a href={`mailto:${organizationInfo.email}`} className={`text-sm font-semibold hover:text-[#0ea5e9] transition-colors ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+                    {organizationInfo.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-[#0d9488]/15 text-[#0d9488]">
                   <Phone className="w-5 h-5" />
                 </div>
@@ -187,7 +199,7 @@ export default function Contact() {
                 <div>
                   <div className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>Location</div>
                   <span className={`text-sm font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                    {personalInfo.location}
+                    Dallas, Texas, USA
                   </span>
                 </div>
               </div>

@@ -1,32 +1,32 @@
 import { motion } from 'framer-motion';
 import { personalInfo, organizationInfo } from '../data/portfolio';
 import { useTheme } from '../context/ThemeContext';
-import { Cpu, Bot, Award, ExternalLink, Sparkles } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const highlights = [
   {
-    icon: Cpu,
-    title: 'Ph.D. in ECE @ UT Dallas',
+    logo: '/utd-logo.jpg',
+    title: 'PhD in ECE @ UT Dallas',
     subtitle: 'High-Performance & In-Memory Computing (2026 - 2029) • 4.0 CGPA',
-    color: '#ea580c',
+    bg: '#ffffff',
   },
   {
-    icon: Sparkles,
-    title: 'US DOE & Lawrence Berkeley Lab',
+    logo: '/doe-logo.jpg',
+    title: 'US Department of Energy (DOE)',
     subtitle: 'Research on High-Throughput HPC & Distributed Memory Paradigms',
-    color: '#0284c7',
+    bg: '#ffffff',
   },
   {
-    icon: Bot,
+    logo: '/berkeley-lab-logo.jpg',
+    title: 'Lawrence Berkeley National Laboratory',
+    subtitle: 'Exascale Computational Workflows & Large-Scale Scientific Systems',
+    bg: '#00263e',
+  },
+  {
+    logo: '/dos3-logo.png',
     title: 'Founder @ DOS3.AI',
     subtitle: 'Pioneering Autonomous Agentic AI & Model Context Protocol (MCP)',
-    color: '#6366f1',
-  },
-  {
-    icon: Award,
-    title: 'M.S. Data Science @ UNT',
-    subtitle: "Perfect 4.0/4.0 CGPA across all semesters • Dean's List Distinction",
-    color: '#0d9488',
+    bg: '#0f172a',
   },
 ];
 
@@ -57,7 +57,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Highlight Banners - High Priority Callouts */}
+        {/* 4 Highlight Cards with Real Logos (UTD, DOE, Berkeley Lab, DOS3.AI) */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,49 +65,50 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
         >
-          {highlights.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.15 + idx * 0.08 }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                className={`p-4 rounded-xl border transition-all duration-300 ${
-                  theme === 'dark'
-                    ? 'bg-gray-800/90 border-gray-700/80 hover:border-indigo-500/60 shadow-lg shadow-black/20'
-                    : 'bg-white border-gray-200/80 hover:border-indigo-500/60 shadow-sm hover:shadow-md'
-                }`}
-              >
-                <div className="flex items-start gap-3">
-                  <div
-                    className="p-2.5 rounded-lg flex-shrink-0"
-                    style={{ backgroundColor: `${item.color}15`, color: item.color }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3
-                      className={`text-sm font-bold leading-tight ${
-                        theme === 'dark' ? 'text-white' : 'text-gray-900'
-                      }`}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      className={`text-xs mt-1 leading-snug ${
-                        theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                      }`}
-                    >
-                      {item.subtitle}
-                    </p>
-                  </div>
+          {highlights.map((item, idx) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.15 + idx * 0.08 }}
+              whileHover={{ y: -4, scale: 1.02 }}
+              className={`p-4 rounded-xl border transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'bg-gray-800/90 border-gray-700/80 hover:border-indigo-500/60 shadow-lg shadow-black/20'
+                  : 'bg-white border-gray-200/80 hover:border-indigo-500/60 shadow-sm hover:shadow-md'
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <div
+                  className="w-12 h-12 rounded-xl p-1 flex-shrink-0 flex items-center justify-center shadow-sm border border-gray-600/30 overflow-hidden"
+                  style={{ backgroundColor: item.bg }}
+                >
+                  <img
+                    src={item.logo}
+                    alt={item.title}
+                    className="max-h-full max-w-full object-contain"
+                  />
                 </div>
-              </motion.div>
-            );
-          })}
+                <div>
+                  <h3
+                    className={`text-sm font-bold leading-tight ${
+                      theme === 'dark' ? 'text-white' : 'text-gray-900'
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className={`text-xs mt-1 leading-snug ${
+                      theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                    }`}
+                  >
+                    {item.subtitle}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">
@@ -125,7 +126,8 @@ export default function About() {
               }`}
             >
               Hey there, I'm{' '}
-              <span className="text-[#6366f1] font-bold">HARIHARAN BABU, M.S.</span> — Founder of{' '}
+              <span className="text-[#6366f1] font-bold">{personalInfo.name}</span> —{' '}
+              <span className="text-emerald-400 font-semibold">{personalInfo.title}</span> and Founder of{' '}
               <a
                 href={organizationInfo.website}
                 target="_blank"
@@ -134,9 +136,7 @@ export default function About() {
               >
                 {organizationInfo.name}
                 <ExternalLink className="w-3.5 h-3.5" />
-              </a>{' '}
-              and Ph.D. Researcher in Electrical & Computer Engineering at{' '}
-              <span className="font-semibold text-[#ea580c]">The University of Texas at Dallas (UTD)</span>.
+              </a>.
             </p>
 
             <div
@@ -159,7 +159,7 @@ export default function About() {
                 theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
               }`}
             >
-              Prior to my Ph.D., I completed my <strong>Master of Science in Data Science at the University of North Texas (UNT)</strong> with a perfect <strong>4.0/4.0 CGPA</strong>, earning recurring Dean's List honors. My academic journey is backed by a Bachelor of Engineering in Computer Science and Engineering from <strong>Anna University Chennai</strong> (First Class honors).
+              Prior to my Ph.D., I completed my <strong>Master of Science in Data Science at the University of North Texas (UNT)</strong> with a perfect <strong>4.0/4.0 CGPA</strong>, earning recurring Dean's List honors. My academic foundation is grounded in a Bachelor of Engineering in Computer Science and Engineering from <strong>Anna University Chennai</strong> (First Class honors).
             </p>
 
             <p
@@ -182,14 +182,14 @@ export default function About() {
             <div className="pt-4 flex items-center justify-between flex-wrap gap-4 border-t border-gray-700/40">
               <div>
                 <div
-                  className={`text-2xl font-bold tracking-tight ${
+                  className={`text-xl md:text-2xl font-bold tracking-tight ${
                     theme === 'dark' ? 'text-white' : 'text-gray-900'
                   }`}
                 >
                   {personalInfo.name}
                 </div>
                 <div className="text-xs text-[#0ea5e9] font-medium mt-0.5">
-                  Founder @ {organizationInfo.name} • Ph.D. Researcher @ UTD
+                  {personalInfo.title} • Founder @ {organizationInfo.name}
                 </div>
               </div>
               <a
@@ -204,7 +204,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Side - Profile Image with Org & Degree Card */}
+          {/* Right Side - Profile Image with Name, Titles & Org Logo */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -217,23 +217,29 @@ export default function About() {
                 theme === 'dark' ? 'bg-gray-800/90 border-gray-700' : 'bg-white border-gray-200'
               }`}
             >
-              {/* Image Container */}
+              {/* Image Container with Name Overlay */}
               <div className="relative rounded-xl overflow-hidden mb-4 group">
                 <img
                   src="/Hari_image.jpg"
                   alt={personalInfo.name}
                   className="w-full h-auto object-cover max-h-[460px] group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="text-xl font-bold">{personalInfo.name}</div>
-                  <div className="text-xs text-indigo-300 font-medium">
-                    {personalInfo.degree}
+                  <div className="text-lg md:text-xl font-bold tracking-tight">
+                    {personalInfo.name}
+                  </div>
+                  <div className="text-xs text-indigo-300 font-semibold mt-0.5">
+                    {personalInfo.title}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-indigo-100 mt-1 font-medium">
+                    <img src={organizationInfo.logo} alt="DOS3.AI" className="w-4 h-4 object-contain rounded" />
+                    <span>Founder @ {organizationInfo.name}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Founder & Org Summary Card Below Photo */}
+              {/* Founder & Org Summary Card Below Photo with DOS3.AI Logo */}
               <div
                 className={`p-4 rounded-xl border ${
                   theme === 'dark'
@@ -241,7 +247,7 @@ export default function About() {
                     : 'bg-gray-50 border-gray-200'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-bold uppercase tracking-wider text-indigo-400">
                     Organization & Affiliation
                   </span>
@@ -249,14 +255,28 @@ export default function About() {
                     Active
                   </span>
                 </div>
-                <div className="text-sm font-bold text-white mb-1 flex items-center gap-2">
-                  <span className="text-[#6366f1]">{organizationInfo.name}</span>
-                  <span className="text-xs text-gray-400 font-normal">| {organizationInfo.founderTitle}</span>
+
+                {/* DOS3.AI with Org Logo */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-gray-950 p-1 flex items-center justify-center border border-indigo-500/40 shadow-sm flex-shrink-0">
+                    <img
+                      src={organizationInfo.logo}
+                      alt={organizationInfo.name}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-white flex items-center gap-2">
+                      <span className="text-[#6366f1]">{organizationInfo.name}</span>
+                      <span className="text-xs text-gray-400 font-normal">| {organizationInfo.founderTitle}</span>
+                    </div>
+                    <div className="text-xs text-gray-400 leading-snug">
+                      {organizationInfo.tagline}
+                    </div>
+                  </div>
                 </div>
-                <p className="text-xs text-gray-400 leading-relaxed mb-3">
-                  {organizationInfo.tagline}
-                </p>
-                <div className="flex gap-2">
+
+                <div className="flex gap-2 pt-1">
                   <a
                     href={organizationInfo.website}
                     target="_blank"
@@ -267,14 +287,14 @@ export default function About() {
                     <ExternalLink className="w-3 h-3" />
                   </a>
                   <a
-                    href="mailto:contact@dos3.ai"
+                    href={`mailto:${organizationInfo.email}`}
                     className={`py-1.5 px-3 rounded-lg text-center text-xs font-semibold border transition-colors flex items-center justify-center ${
                       theme === 'dark'
                         ? 'border-gray-700 hover:bg-gray-800 text-gray-300'
                         : 'border-gray-300 hover:bg-gray-100 text-gray-700'
                     }`}
                   >
-                    contact@dos3.ai
+                    {organizationInfo.email}
                   </a>
                 </div>
               </div>

@@ -87,7 +87,7 @@ export default function Footer() {
           className="flex justify-center gap-4"
         >
           <a 
-            href="https://github.com/hariharan/portfolio" 
+            href="https://github.com/H972723/Hariharan-Babu---Portfolio" 
             target="_blank" 
             rel="noopener noreferrer"
             className={`flex items-center gap-2 px-4 py-2 rounded-xl shadow-sm hover:text-[#6366f1] transition-colors text-xs font-medium ${theme === 'dark' ? 'bg-gray-900 border border-gray-800 text-gray-400' : 'bg-white border border-gray-200 text-gray-600'}`}
@@ -96,7 +96,7 @@ export default function Footer() {
             Star
           </a>
           <a 
-            href="https://github.com/hariharan/portfolio/fork" 
+            href="https://github.com/H972723/Hariharan-Babu---Portfolio/fork" 
             target="_blank" 
             rel="noopener noreferrer"
             className={`flex items-center gap-2 px-4 py-2 rounded-xl shadow-sm hover:text-[#6366f1] transition-colors text-xs font-medium ${theme === 'dark' ? 'bg-gray-900 border border-gray-800 text-gray-400' : 'bg-white border border-gray-200 text-gray-600'}`}

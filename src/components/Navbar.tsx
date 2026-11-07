@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, ExternalLink, Sparkles } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-import { organizationInfo } from '../data/portfolio';
+import { personalInfo, organizationInfo } from '../data/portfolio';
 
 const navLinks = [
   { name: 'ABOUT', href: '#about' },
@@ -64,7 +64,7 @@ export default function Navbar() {
                   H
                 </div>
                 <span className={`font-bold text-sm md:text-base hidden sm:inline ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                  Hariharan Babu, M.S.
+                  {personalInfo.name}
                 </span>
               </a>
 
@@ -190,7 +190,7 @@ export default function Navbar() {
                 <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-700/40">
                   <div>
                     <div className={`font-bold text-sm ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                      Hariharan Babu, M.S.
+                      {personalInfo.name}
                     </div>
                     <div className="text-[11px] text-[#6366f1] font-medium">
                       Founder @ {organizationInfo.name}

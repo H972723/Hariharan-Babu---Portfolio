@@ -1,4 +1,4 @@
-# Hariharan Babu - Portfolio
+# Dr Hariharan Babu BE, MS, PhD - Portfolio
 
 A modern React portfolio website built with Vite, React, and Tailwind CSS.
 

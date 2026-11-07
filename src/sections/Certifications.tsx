@@ -250,12 +250,6 @@ export default function Certifications() {
                     <Calendar className="w-3 h-3 text-[#6366f1]" />
                     {cert.completedDateDisplay}
                   </span>
-
-                  {cert.credentialId && (
-                    <span className="text-[10px] font-mono text-gray-400 truncate max-w-[120px]" title={`ID: ${cert.credentialId}`}>
-                      ID: {cert.credentialId.slice(0, 8)}...
-                    </span>
-                  )}
                 </div>
 
                 {/* Badge Logo */}
@@ -443,7 +437,7 @@ export default function Certifications() {
               <div className="p-3.5 border-t border-gray-700/60 bg-gray-950/40 flex items-center justify-between text-xs text-gray-400">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-emerald-400" />
-                  <span>Authenticated Credential for Hariharan Babu, M.S.</span>
+                  <span>Authenticated Credential for Dr Hariharan Babu BE, MS, PhD</span>
                 </div>
                 {selectedCert.credentialId && (
                   <span className="font-mono text-gray-400">Credential ID: {selectedCert.credentialId}</span>

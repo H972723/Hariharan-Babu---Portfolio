@@ -31,9 +31,9 @@ export default function Education() {
 
   const getDegreeLabel = (degree: string) => {
     const cat = getDegreeCategory(degree);
-    if (cat === 'doctoral') return 'DOCTORAL DEGREE (PH.D.)';
-    if (cat === 'masters') return "MASTER'S DEGREE";
-    return "BACHELOR'S DEGREE";
+    if (cat === 'doctoral') return 'PhD';
+    if (cat === 'masters') return 'MS';
+    return 'BE';
   };
 
   return (

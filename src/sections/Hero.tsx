@@ -91,15 +91,15 @@ export default function Hero() {
               className="mb-4"
             >
               <span
-                className={`text-4xl md:text-5xl lg:text-6xl font-extrabold block mb-2 tracking-tight ${
+                className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold block mb-2 tracking-tight ${
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}
               >
                 I am{' '}
-                <span className="text-[#6366f1]">{personalInfo.name.toUpperCase()}</span>
+                <span className="text-[#6366f1]">{personalInfo.name}</span>
               </span>
               <span
-                className="text-3xl md:text-4xl lg:text-5xl font-bold block"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold block"
                 style={{
                   background: 'linear-gradient(90deg, #0d9488 0%, #0891b2 50%, #2563eb 100%)',
                   WebkitBackgroundClip: 'text',
@@ -111,18 +111,52 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Sub-headline Focus */}
-            <motion.p
+            {/* Line 1: PhD Researcher at UTD | MS in UNT */}
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className={`text-base md:text-lg font-medium mb-6 flex items-center gap-2 ${
-                theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-              }`}
+              className="flex items-center gap-2 mb-2"
             >
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              {personalInfo.heroSubheading}
-            </motion.p>
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping flex-shrink-0" />
+              <span className={`text-base md:text-lg font-bold ${theme === 'dark' ? 'text-gray-200' : 'text-gray-800'}`}>
+                PhD Researcher at UTD | MS in UNT
+              </span>
+            </motion.div>
+
+            {/* Line 2: DOS3.AI with Org Logo */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <a
+                href={organizationInfo.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl border transition-all duration-300 group shadow-sm ${
+                  theme === 'dark'
+                    ? 'bg-gray-800/80 border-indigo-500/40 hover:border-indigo-400'
+                    : 'bg-white border-indigo-200 hover:border-indigo-400'
+                }`}
+              >
+                <div className="w-6 h-6 rounded-lg bg-gray-950 p-0.5 flex items-center justify-center border border-indigo-500/30 flex-shrink-0">
+                  <img
+                    src={organizationInfo.logo}
+                    alt={organizationInfo.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <span className="text-sm font-bold text-[#6366f1] group-hover:underline">
+                  {organizationInfo.name}
+                </span>
+                <span className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                  • Founder & Lead AI Researcher
+                </span>
+                <ExternalLink className="w-3 h-3 text-[#6366f1] opacity-70" />
+              </a>
+            </motion.div>
 
             {/* Social Links */}
             <motion.div

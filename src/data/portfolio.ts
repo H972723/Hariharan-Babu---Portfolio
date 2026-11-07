@@ -1,37 +1,38 @@
 import type { Experience, Project, Skill, Education, SocialLink, Testimonial, Volunteering, Award, CertificationItem, OrganizationInfo } from '../types';
 
 export const personalInfo = {
-  name: 'Hariharan Babu, M.S.',
-  fullName: 'Hariharan Babu',
-  degree: 'M.S. Data Science | Ph.D. Researcher in ECE',
-  title: 'Ph.D. Researcher in HPC & Agentic AI | Founder at DOS3.AI',
+  name: 'Dr Hariharan Babu BE, MS, PhD',
+  fullName: 'Dr Hariharan Babu',
+  degree: 'PhD Researcher at UTD | MS in UNT',
+  title: 'PhD Researcher at UTD | MS in UNT',
   organization: 'DOS3.AI',
   orgWebsite: 'https://dos3.ai',
   email: 'hariharanbabu.ms@gmail.com',
   orgEmail: 'contact@dos3.ai',
   phone: '(206) 954-7948',
-  location: 'North Texas, Dallas, TX (Open to relocation)',
+  location: 'Dallas, Texas, USA',
   tagline: 'I Turn Ideas into Code.',
-  heroSubheading: 'High Performance Computing • Agentic AI • Distributed Data Systems',
+  heroSubheading: 'PhD Researcher at UTD | MS in UNT',
   heroDescription: `const researcher = {
-  name: "Hariharan Babu, M.S.",
+  name: "Dr Hariharan Babu BE, MS, PhD",
+  role: "PhD Researcher at UTD | MS in UNT",
   organization: "DOS3.AI (Founder)",
   education: {
-    phd: "Ph.D. in Electrical & Computer Engineering @ UT Dallas (2026-2029)",
-    masters: "M.S. in Data Science @ UNT (4.0/4.0 GPA, Dean's List)",
+    phd: "PhD in Electrical & Computer Engineering @ UT Dallas (2026-2029)",
+    masters: "MS in Data Science @ UNT (4.0/4.0 GPA, Dean's List)",
     bachelors: "B.E. in Computer Science @ Anna University"
   },
   collaborations: ["US Department of Energy (DOE)", "Lawrence Berkeley National Lab (LBNL)"],
   coreFocus: ["High Performance Computing (HPC)", "In-Memory Computing", "Agentic AI", "Distributed Systems"]
 };`,
-  description: "Hey there, I'm Hariharan Babu, M.S.! I am a researcher, data systems architect, and the Founder of DOS3.AI. I am currently pursuing my Ph.D. in Electrical and Computer Engineering at The University of Texas at Dallas (UTD) with a 4.0 CGPA, having graduated with my Master's in Data Science from the University of North Texas (UNT) with a perfect 4.0/4.0 CGPA and Dean's List honors.\n\nMy primary research focuses on High-Performance Computing (HPC), In-Memory Computing architectures, and Agentic AI Systems. In collaboration with landmark initiatives sponsored by the US Department of Energy (DOE) and Lawrence Berkeley National Laboratory (LBNL), I design memory-centric acceleration architectures, high-throughput distributed memory frameworks, and autonomous multi-agent reasoning systems that eliminate computational bottlenecks in large-scale scientific simulations and AI inference.\n\nAlongside my doctoral research, I have engineered enterprise-grade data platforms across AWS, Databricks, and Snowflake, implementing serverless ETL/ELT pipelines, real-time streaming engines, and robust data quality frameworks. Through DOS3.AI, I bridge frontier academic computing research with production-grade AI intelligence—pioneering Model Context Protocol (MCP) agent swarms and distributed systems that turn massive data into dependable autonomous action.",
+  description: "Hey there, I'm Dr Hariharan Babu BE, MS, PhD! I am a researcher, data systems architect, and the Founder of DOS3.AI. I am currently pursuing my Ph.D. in Electrical and Computer Engineering at The University of Texas at Dallas (UTD) with a 4.0 CGPA, having graduated with my Master's in Data Science from the University of North Texas (UNT) with a perfect 4.0/4.0 CGPA and Dean's List honors.\n\nMy primary research focuses on High-Performance Computing (HPC), In-Memory Computing architectures, and Agentic AI Systems. In collaboration with landmark initiatives sponsored by the US Department of Energy (DOE) and Lawrence Berkeley National Laboratory (LBNL), I design memory-centric acceleration architectures, high-throughput distributed memory frameworks, and autonomous multi-agent reasoning systems that eliminate computational bottlenecks in large-scale scientific simulations and AI inference.\n\nAlongside my doctoral research, I have engineered enterprise-grade data platforms across AWS, Databricks, and Snowflake, implementing serverless ETL/ELT pipelines, real-time streaming engines, and robust data quality frameworks. Through DOS3.AI, I bridge frontier academic computing research with production-grade AI intelligence—pioneering Model Context Protocol (MCP) agent swarms and distributed systems that turn massive data into dependable autonomous action.",
   heroTexts: [
-    'Ph.D. Researcher @ UTD',
+    'PhD Researcher at UTD',
+    'MS in UNT',
     'Founder @ DOS3.AI',
     'HPC & In-Memory Computing',
     'Agentic AI & MCP Systems',
     'US DOE & LBNL Researcher',
-    'Data Platform Architect',
   ],
 };
 
@@ -39,7 +40,7 @@ export const organizationInfo: OrganizationInfo = {
   name: 'DOS3.AI',
   logo: '/dos3-logo.png',
   tagline: 'Pioneering Autonomous Agentic AI & High-Performance Computing',
-  founder: 'Hariharan Babu, M.S.',
+  founder: 'Dr Hariharan Babu BE, MS, PhD',
   founderTitle: 'Founder & Lead AI Researcher',
   email: 'contact@dos3.ai',
   website: 'https://dos3.ai',
@@ -533,26 +534,6 @@ export const certifications: CertificationItem[] = [
     pdfUrl: '/certificates/Data Engineer Professional.pdf',
     verifyUrl: 'https://www.databricks.com/learn/certification/data-engineer-professional',
     category: 'data',
-  },
-  {
-    id: 'cisco-genai-blackbelt',
-    title: 'Cisco Generative AI Black Belt 2024',
-    organization: 'Cisco',
-    issueDate: '2024-06-01',
-    completedDateDisplay: 'June 2024',
-    logo: '/certifications/cisco.png',
-    verifyUrl: 'https://www.cisco.com/',
-    category: 'ai',
-  },
-  {
-    id: 'aws-solutions-architect-assoc',
-    title: 'AWS Certified Solutions Architect – Associate',
-    organization: 'Amazon Web Services',
-    issueDate: '2024-03-01',
-    completedDateDisplay: 'March 2024',
-    logo: '/certifications/aws-solutions-architect.png',
-    verifyUrl: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/',
-    category: 'cloud',
   },
 ];
 
